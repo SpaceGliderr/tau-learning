@@ -36,7 +36,7 @@ def get_all_users():
     return response, peoples
 
 
-def test_read_all_has_kent():
+def test_read_all_has_kent(logger):
     # Make a GET HTTP request to people API endpoint
     response = requests.get(BASE_URI) # Good idea to isolate config from tests
     # Use the json method to convert JSON string into dict
@@ -46,6 +46,9 @@ def test_read_all_has_kent():
 
     # Assert using assertpy library2
     assert_that(response.status_code).is_equal_to(200)
+
+    logger.info("User successfully read")
+
     first_names = [people["fname"] for people in response_text]
     assert_that(first_names).contains("Kent")
 
