@@ -16,6 +16,13 @@
 
 3. Go to `localhost:8080` and access Report Portal dashboard
 
+4. Run a test with ReportPortal enabled
+   ```
+   python -m pytest --reportportal
+   ```
+
+**NOTE**: The current ReportPortal won't work as there are no credentials in the `pytest.ini` config file. This must be copied from the user profile in ReportPortal.
+
 # Debugging Log
 
 ## ElasticSearch keeps restarting
